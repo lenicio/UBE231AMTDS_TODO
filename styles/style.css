@@ -5,6 +5,10 @@
   font-family: "Roboto", sans-serif;
 }
 
+body {
+  background-image: url("../images/background.jpg");
+}
+
 .container {
   background-color: #d1d1d1;
   width: 500px;
