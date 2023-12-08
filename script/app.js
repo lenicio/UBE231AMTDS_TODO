@@ -4,12 +4,12 @@ botaoAdicionar.addEventListener("click", adicionaItem);
 
 function exibeLista() {
   let novaLi = "";
-  todoLista.forEach(function (item) {
+  todoLista.forEach(function (item, pos) {
     novaLi += `
     <li class="todo-item">
     <i class="fa-solid fa-circle-check"></i>
     <p class="">${item}</p>
-    <i class="fa-solid fa-trash"></i>
+    <i class="fa-solid fa-trash" onclick="removeItem(${pos})"></i>
     </li>
 `;
   });
@@ -33,6 +33,12 @@ function carregaLista() {
   if (lista) {
     todoLista = JSON.parse(lista);
   }
+  exibeLista();
+}
+
+function removeItem(pos) {
+  todoLista.splice(pos, 1);
+  salvaLista();
   exibeLista();
 }
 
