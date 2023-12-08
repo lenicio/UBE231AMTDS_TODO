@@ -20,5 +20,20 @@ function adicionaItem() {
   let inputAtividade = document.getElementById("input-atividade").value;
   todoLista.push(inputAtividade);
   document.getElementById("input-atividade").value = "";
+  salvaLista();
   exibeLista();
 }
+
+function salvaLista() {
+  localStorage.setItem("todoLista", JSON.stringify(todoLista));
+}
+
+function carregaLista() {
+  let lista = localStorage.getItem("todoLista");
+  if (lista) {
+    todoLista = JSON.parse(lista);
+  }
+  exibeLista();
+}
+
+carregaLista();
